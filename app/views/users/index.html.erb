@@ -1,13 +1,19 @@
+<% if user_signed_in? %>
 <header>
 <h2>Potepan Shere</h2>
-<a><%= link_to "ログイン", "/users/sign_up" %></a>
-<a><%= link_to "新規登録", "/users/new" %></a>
+<a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></a>
 </header>
 
 <div class = toppage>
-<p>　Potepan Shareで<br>まだ体験したことのない<br>
+<p class = top-logo>　Potepan Shareで<br>まだ体験したことのない<br>
 　　旅をしよう</p>
 </div>
 
 #検索バーと検索ボタンの実装
 
+<h3>おすすめエリア</h3>
+
+<% else %>
+<a><%= link_to "ログイン", "/users/sign_in" %></a>
+<a><%= link_to "新規登録", "/users/sign_up" %></a>
+<% end %>
